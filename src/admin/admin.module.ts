@@ -6,7 +6,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Admin } from './entities/admin.entity';
 import { Profile } from '../profiles/entities/profile.entity';
 import { Doctor } from '../doctor/entities/doctor.entity';
-// import { CaslModule } from 'src/casl/casl.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Admin, Profile, Doctor]) /*CaslModule*/],

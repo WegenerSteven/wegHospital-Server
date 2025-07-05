@@ -73,10 +73,17 @@ export class AuthService {
 
   //method to signin a new user
   async signIn(CreateAuthDto: CreateAuthDto) {
-    //checj if user exists in the database
+    //check if user exists in the database
     const foundUser = await this.profileRepository.findOne({
       where: { email: CreateAuthDto.email },
-      select: ['profileId', 'email', 'password', 'role'], //include role selection
+      select: [
+        'profileId',
+        'email',
+        'password',
+        'role',
+        'firstName',
+        'lastName',
+      ], //include all needed fields
     });
     if (!foundUser) {
       throw new NotFoundException(`no user with ${CreateAuthDto.email} found`);
@@ -101,8 +108,19 @@ export class AuthService {
 
     //save refresh token in the database
     await this.saveRefreshToken(foundUser.profileId, refreshToken);
-    //return tokens
-    return { accessToken, refreshToken };
+
+    //return tokens with user data
+    return {
+      accessToken,
+      refreshToken,
+      user: {
+        profileId: foundUser.profileId,
+        firstName: foundUser.firstName,
+        lastName: foundUser.lastName,
+        email: foundUser.email,
+        role: foundUser.role,
+      },
+    };
   }
 
   //sign out a user

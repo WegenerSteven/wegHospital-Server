@@ -19,7 +19,7 @@ import { RolesGuard } from 'src/auth/guards/roles.guard';
 
 @ApiTags('appointments')
 @ApiBearerAuth()
-@UseGuards(RolesGuard, AtGuard)
+@UseGuards(AtGuard, RolesGuard)
 @Controller('appointments')
 export class AppointmentsController {
   constructor(private readonly appointmentsService: AppointmentsService) {}

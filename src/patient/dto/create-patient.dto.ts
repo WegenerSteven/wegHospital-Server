@@ -21,10 +21,11 @@ export class CreatePatientDto {
     description: 'the date of Discharge of the patient',
     example: '2023-10-10',
     type: Date,
+    required: false,
   })
   @IsDateString()
-  @IsNotEmpty()
-  dateOfDischarge: Date;
+  @IsOptional()
+  dateOfDischarge?: Date;
 
   @ApiProperty({
     description: 'the date of Birth of the patient',

@@ -18,9 +18,8 @@ import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Role } from './entities/profile.entity';
 import { Roles } from 'src/auth/decorators/role.decorator';
 import { AtGuard } from 'src/auth/guards';
-import { ApiBearerAuth, ApiTags, ApiQuery } from '@nestjs/swagger';
+import { /*ApiBearerAuth*/ ApiTags, ApiQuery } from '@nestjs/swagger';
 
-@ApiBearerAuth()
 @ApiTags('profiles')
 @UseGuards(RolesGuard, AtGuard)
 @Controller('profiles')

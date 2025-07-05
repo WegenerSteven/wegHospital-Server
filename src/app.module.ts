@@ -7,7 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProfilesModule } from './profiles/profiles.module';
 import { MedicalHistoryModule } from './medical-history/medical-history.module';
 import { AppointmentsModule } from './appointments/appointments.module';
-//import { SeedModule } from './seed/seed.module';
+import { SeedModule } from './seed/seed.module';
 import { LogsModule } from './logs/logs.module';
 import { LoggerMiddleware } from './logger.middleware';
 // import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
@@ -28,7 +28,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
     PatientModule,
     ProfilesModule,
     AppointmentsModule,
-    //SeedModule,
+    SeedModule,
     LogsModule,
     //add cache module from cache manager
     // CacheModule.registerAsync({
@@ -73,7 +73,6 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
         },
       ],
     }),
-    AppointmentsModule,
     MedicalHistoryModule,
     CaslModule,
   ],

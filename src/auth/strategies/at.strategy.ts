@@ -11,7 +11,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 export type JWTPayload = {
   sub: number; // User ID
   email: string; // User email
-  roles: string;
+  role: string; // User role (singular)
 };
 @Injectable()
 export class AtStrategy extends PassportStrategy(Strategy, 'jwt-at') {

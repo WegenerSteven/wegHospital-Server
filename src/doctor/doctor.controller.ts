@@ -11,13 +11,13 @@ import {
 import { DoctorService } from './doctor.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { Roles } from 'src/auth/decorators/role.decorator';
 import { AtGuard, RolesGuard } from 'src/auth/guards';
 import { Role } from '../profiles/entities/profile.entity';
 @ApiTags('doctors')
 @ApiBearerAuth()
-@UseGuards(RolesGuard, AtGuard)
+@UseGuards(AtGuard, RolesGuard)
 @Controller('doctors')
 export class DoctorController {
   constructor(private readonly doctorService: DoctorService) {}

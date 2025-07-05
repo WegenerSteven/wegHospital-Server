@@ -15,8 +15,8 @@ export class AppointmentsService {
     @InjectRepository(Patient) private patientRepository: Repository<Patient>,
     @InjectRepository(Doctor) private doctorRespository: Repository<Doctor>,
   ) {}
- async create(createAppointmentDto: CreateAppointmentDto) {
-    const existPatient =await this.patientRepository.findOne({
+  async create(createAppointmentDto: CreateAppointmentDto) {
+    const existPatient = await this.patientRepository.findOne({
       where: { patientId: createAppointmentDto.patientId },
     });
     if (!existPatient) {

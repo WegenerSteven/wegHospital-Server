@@ -19,8 +19,8 @@ export class Patient {
   @Column('date')
   dateOfAdmission: Date;
 
-  @Column('date')
-  dateOfDischarge: Date;
+  @Column('date', { nullable: true })
+  dateOfDischarge?: Date;
 
   @Column('date')
   dateOfBirth: Date;
